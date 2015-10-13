@@ -64,7 +64,7 @@ int main(int argc, char ** argv)
     }
     on_destruct close_sockfd( [sockfd](){ close(sockfd); } );
     
-    // server address (127.0.0.1:8000)
+    // server address (127.0.0.1:8001)
     struct sockaddr_in server_addr;
     ::memset(&server_addr, 0, sizeof(server_addr));
     
@@ -75,7 +75,7 @@ int main(int argc, char ** argv)
     // connect to server
     if( connect(sockfd, (struct sockaddr *)&server_addr, sizeof(struct sockaddr)) == -1 )
     {
-      throw "failed to connect to server at 127.0.0.1:8000";
+      throw "failed to connect to server at 127.0.0.1:8001";
     }
     
     // prepare data
