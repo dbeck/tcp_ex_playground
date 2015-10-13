@@ -70,7 +70,7 @@ int main(int argc, char ** argv)
     
     server_addr.sin_family = AF_INET;
     server_addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
-    server_addr.sin_port = htons(8000);  
+    server_addr.sin_port = htons(8001);  
     
     // connect to server
     if( connect(sockfd, (struct sockaddr *)&server_addr, sizeof(struct sockaddr)) == -1 )
