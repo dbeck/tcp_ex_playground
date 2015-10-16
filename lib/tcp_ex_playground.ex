@@ -6,7 +6,8 @@ defmodule TcpExPlayground do
 
     children = [
       worker(RequestReply.Worker, []),
-      worker(ThrottleAck.Worker, [])
+      worker(ThrottleAck.Worker, []),
+      worker(HeadRest.Worker, [])
     ]
 
     opts = [strategy: :one_for_one, name: TcpExPlayground.Supervisor]
