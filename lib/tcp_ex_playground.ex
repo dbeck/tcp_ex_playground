@@ -8,7 +8,8 @@ defmodule TcpExPlayground do
       worker(RequestReply.Worker, []),
       worker(ThrottleAck.Worker, []),
       worker(HeadRest.Worker, []),
-      worker(SyncAck.Worker, [])
+      worker(SyncAck.Worker, []),
+      worker(AsyncAck.Worker, [])
     ]
 
     opts = [strategy: :one_for_one, name: TcpExPlayground.Supervisor]
