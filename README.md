@@ -11,7 +11,4 @@ This project holds experiences in the Elixir TCP world. They all have a few corr
 
  - [04_synch_ack branch](https://github.com/dbeck/tcp_ex_playground/tree/04_synch_ack) is documented [here](http://dbeck.github.io/Passing-Millions-Of-Small-TCP-Messages-in-Elixir/). By removing a bottleneck from the code I achieved significant performance gain. The C++ client is [here](https://github.com/dbeck/tcp_ex_playground/blob/master/cpp/SyncAck.cc). The Elixir server is [here](https://github.com/dbeck/tcp_ex_playground/blob/master/lib/sync_ack_handler.ex). The result is over **2M msgs/sec** on my laptop.
  
-
- 
-
-
+ - [05_asynch_ack branch](https://github.com/dbeck/tcp_ex_playground/tree/05_asynch_ack) is documented [here](http://dbeck.github.io/Wrapping-up-my-Elixir-TCP-experiments/). In this latest experiment I retried moving the ACK sending to and independent process. With that I achieved **3M request per sec** on my MacBook Air laptop. When I tried it on an old Linux machine and an EC2 Amazon instance, this last code was slower than the previous **04_synch_ack** experiment. Looks like at this performance range one needs to consider the actual hardware too where the code is going to run. Memory and CPU speed both impacts heavily the speed of passing data between Elixir processes. The client code is available  [here](https://github.com/dbeck/tcp_ex_playground/blob/master/cpp/AsyncAck.cc). The Elixir server is [here](https://github.com/dbeck/tcp_ex_playground/blob/master/lib/async_ack_handler.ex).
